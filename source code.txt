@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+int main(){
+	bool inverter = false;
+	int spaces = 0;
+	int hashes = 0;
+
+	for (int row = 0; row < 8; row++)
+	{
+
+		//adustment of symbols for all the loop
+		spaces = 8 - row - 1;
+		hashes = row + 1;
+		//___________________________________
+
+
+		for (int col = 0; col < 18; col++)
+		{	
+			//lma negy ne2lb el pattern
+			if (col == 8 || col == 9)
+			{
+				inverter = true;
+				cout << " ";
+				continue;
+			}
+			//__________________________
+
+
+
+			//Left side of the shape
+			if (!inverter){
+				if (spaces > 0){
+					cout << " ";
+					spaces--;
+				}
+				else
+					cout << "#";
+
+			}
+			//_______________________
+
+
+			//Right side of the shape
+			else if (inverter){
+				if (hashes > 0){
+					cout << "#";
+					hashes--;
+				}
+				else
+					cout << " ";
+				
+
+			}
+			//________________________
+		}
+
+
+		//inverter reset
+		inverter = false;
+		cout << "\n";
+	}
+
+
+
+	return 0;
+}
